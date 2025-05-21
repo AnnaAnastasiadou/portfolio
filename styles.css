@@ -343,6 +343,8 @@ footer {
     background-color: var(--menu-bg);
     padding: 20px;
     font-size: 0.8em;
+    text-align: center;
+    
 }
 
 @media screen and (max-width: 480px) {
