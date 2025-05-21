@@ -4,8 +4,9 @@
     --text-secondary: rgb(127, 219, 255);
     --bg-primary: rgb(7, 3, 23);
     --bg-secondary: rgb(17, 23, 47);
+    --bg-light: rgb(211, 211, 211);
     --menu-bg: rgba(15, 23, 42, 0.8);
-    --card-bg: rgba(15, 23, 42, 0.8);
+    --card-bg: rgb(17, 23, 47);/*rgba(15, 23, 42, 0.8);*/
 
     /*radius*/
     --border-radius: 25px;
@@ -211,6 +212,11 @@ ul {
     height: auto;
 }
 
+#aboutme {
+    background-color: var(--bg-light);
+    color: var(--bg-primary);
+}
+
 .emoji {
     width: 20px; 
     height: 20px;
@@ -220,6 +226,7 @@ ul {
 .degree-title, .internship-title, .skills-title {
     margin-top: 0;
     text-align: center;
+
 }
 
 .journey {
@@ -242,6 +249,7 @@ ul {
     padding: 40px 10px;
     overflow: auto;
     margin: 0 auto;
+    color: var(--text-light);
 }
 
 .degree, .internship, .skill-category {
@@ -287,12 +295,13 @@ ul {
     height: calc(100% - 12px);
     background-color: var(--text-light);
     margin: 0 auto;
+    background-color: var(--bg-secondary);
 }
 
 .arrowhead {
     width: 0;
     height: 0;
-    border-top: 12px solid var(--text-light);
+    border-top: 12px solid var(--bg-secondary);
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     margin: 0 auto;
@@ -307,9 +316,11 @@ ul {
 }
 
 .cta-section a {
+    background: var(--bg-secondary);
+    color: var(--text-light);
     display: inline-block;
     padding: 10px;
-    border: 2px solid var(--text-light);
+    border: 2px solid var(--bg-secondary);
     border-radius: var(--border-radius);
     margin: 5px;
     text-decoration: none;
@@ -320,10 +331,16 @@ ul {
 
 .cta-section a:hover {
     background: var(--text-light);
-    color: var(--bg-primary);
+    color: var(--bg-secondary);
+}
+
+#contactme {
+    background-color: var(--text-light);
+    color: var(--bg-secondary);
 }
 
 footer {
+    background-color: var(--menu-bg);
     padding: 20px;
     font-size: 0.8em;
 }
@@ -362,7 +379,7 @@ footer {
     }
 
     #navbar {
-        background: var(--bg-primary);
+        background: transparent;/*var(--bg-primary)*/
     }
 
     .nav-list {
@@ -371,6 +388,10 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         gap: 1em;
+    }
+
+    .nav-list.expanded {
+        background-color: rgb(15, 23, 42);
     }
 
     .journey {
@@ -430,7 +451,7 @@ footer {
         border-top: 8px solid transparent;
         border-bottom: 8px solid transparent;
         border-right: none;
-        border-left: 12px solid var(--text-light);
+        border-left: 12px solid var(--bg-secondary);
         margin: 0;
     }
 
