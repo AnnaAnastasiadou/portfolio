@@ -1,8 +1,24 @@
-* { 
+:root {
+    /*color variables*/
+    --text-light: rgb(240, 240, 240);
+    --text-secondary: rgb(127, 219, 255);
+    --bg-primary: rgb(7, 3, 23);
+    --bg-secondary: rgb(17, 23, 47);
+    --menu-bg: rgba(15, 23, 42, 0.8);
+    --card-bg: rgba(15, 23, 42, 0.8);
+
+    /*radius*/
+    --border-radius: 25px;
+}
+
+*,
+*::before,
+*::after { 
     box-sizing: border-box;
 }
 
-html {
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -10,38 +26,417 @@ html {
 body {
     background: radial-gradient(
         circle at center,
-        #11172f,  /* Dark navy with a hint of purple */
-        #070317   /* Near-black indigo */
+        var(--bg-secondary),
+        var(--bg-primary) 
     );
-    color: #f0f0f0;
+    color: var(--text-light);
     font-family: Montserrat,'Roboto Mono', monospace;
-    font: 14px;
-    margin: 10px;
-    padding: 10px;
+    font-size: 14px;
+    scroll-behavior: smooth;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.5);
-    padding: 10px 20px;
-    border-radius: 25px;
+*::selection {
+    background: #380375;
 }
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    padding: 15px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1000;
+}
+
+.hamburger-box {
+    width: 25px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-light);
+    border-radius: 4px;
+    position: absolute;
+    transition: transform 0.15s ease;
+}
+
+.hamburger-inner {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-inner::before {
+    top: -8px;
+}
+
+.hamburger-inner::after {
+    top: 8px;
+}
+
+.hamburger.is-active .hamburger-inner::after {
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%;
+}
+
+.hamburger.is-active .hamburger-inner::before {
+    transform: translateY(-50%) rotate(-45deg);
+    top: 50%;
+}
+
+.hamburger.is-active .hamburger-inner {
+    background-color: transparent;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 2%;
+    width: 96%;
+    padding-top: 1%;
+    border-radius: 0 0 25px 25px;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    z-index: 1000;
+    transition: all 0.1s ease;
+}      
 
 .nav-list {
+    position: relative;
+    width: 100%;
     list-style: none;
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-list.expanded {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 15px;
+    background: var(--menu-bg); 
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 15px;
+    border-radius: var(--border-radius);  
 }
 
 .nav-button {
-    color: #f0f0f0;
+    color: var(--text-light);
     text-decoration: none;
+    padding: 3px;
+    transition: all 0.2s ease;
 }
 
-#name-nav {
-    font-size: 1.1rem;
+.nav-button:hover {
+    color: var(--menu-bg);
+    background-color: var(--text-light);
+    border-radius: 4px;
+}
+
+section {
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding: 2em;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h1, h2, h3 {
+    margin: 1em 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0 0 0 20px;
+}
+
+#home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+
+#home-text h1 {
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+#home-text h2 {
+    color:  var(--text-secondary);
+}
+
+#home-image {
+    width: 40%;
+    max-width: 300px;
+    min-width: 150px;
+    height: auto;
+}
+
+.emoji {
+    width: 20px; 
+    height: 20px;
+    vertical-align: middle;
+}
+
+.degree-title, .internship-title, .skills-title {
+    margin-top: 0;
+    text-align: center;
+}
+
+.journey {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 40px auto 40px auto;
+    gap: 20px;
+    max-width: 800px;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto auto;  
+    gap: 20px;    
+    max-width: 300px;           
+}
+
+.journey, .skills {
+    padding: 40px 10px;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.degree, .internship, .skill-category {
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    background: var(--card-bg);
+    margin: 0 auto;
+    justify-content: center;
+}
+
+#bsc, #frontend {
+    grid-row: 1/2;     
+}
+
+.first-arrow {
+    grid-row: 2/3;     
+}
+
+#internship, #backend {
+     grid-row: 3/4;
+}
+
+.second-arrow {
+    grid-row: 4/5;     
+}
+
+#msc, #tools {
+    grid-row: 5/6;
+}
+
+.first-arrow,
+.second-arrow {
+    position: relative;
+    height: 100%;
+    width: 15px;
+    margin: 0 auto;
+}
+
+.line {
+    width: 2px;
+    height: calc(100% - 12px);
+    background-color: var(--text-light);
+    margin: 0 auto;
+}
+
+.arrowhead {
+    width: 0;
+    height: 0;
+    border-top: 12px solid var(--text-light);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    margin: 0 auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.cta-section a {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid var(--text-light);
+    border-radius: var(--border-radius);
+    margin: 5px;
+    text-decoration: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cta-section a:hover {
+    background: var(--text-light);
+    color: var(--bg-primary);
+}
+
+footer {
+    padding: 20px;
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 480px) {
+    #home {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;   
+        text-align: center;
+    }
+
+    #home-text {
+        width: 100%; 
+    }
+
+    #home-image {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    body{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+    body{
+        font-size: 18px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    #navbar {
+        background: var(--bg-primary);
+    }
+
+    .nav-list {
+        max-height: none;
+        padding: 0;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1em;
+    }
+
+    .journey {
+        display: grid;
+        grid-template-columns: 1fr 40px 1fr; 
+        grid-template-rows: auto 40px auto;  
+        gap: 20px;                     
+    }
+
+    .skills {
+        display: grid;
+        grid-template-columns: auto auto auto;        
+        grid-template-rows: 1fr;  
+        max-width: 800px;   
+        margin: 0 auto;                 
+    }
+
+    #bsc {
+        grid-column: 1/2;  
+        grid-row: 1/2;    
+    }
+
+    #internship {
+        grid-column: 3/4;  
+        grid-row: 1/2;
+    }
+
+    #msc {
+        grid-column: 3/4;  
+        grid-row: 3/4;     
+    }
+
+    #frontend, #backend, #tools {
+        grid-column: auto;
+        grid-row: auto;
+        justify-self: auto;
+    }
+
+    .first-arrow {
+        grid-column: 2/3;  
+        grid-row: 1/2;     
+        width: 100%;
+        height: 15px;
+        margin: auto;
+    }
+
+    .first-arrow .line {
+        height: 2px;
+        width: calc(100% - 12px);
+        margin: auto 0;
+    }
+
+    .first-arrow .arrowhead {
+        position: absolute;
+        right: 0;
+        top: -50%;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: none;
+        border-left: 12px solid var(--text-light);
+        margin: 0;
+    }
+
+    .second-arrow {
+        grid-column: 3/4;  
+        grid-row: 2/3; 
+    }
+
 }
