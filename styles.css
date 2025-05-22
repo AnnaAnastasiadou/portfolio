@@ -132,7 +132,7 @@ body {
 }
 
 .navbar-hidden {
-    transform: translateY(calc(-100% - 1rem));
+    transform: translateY(calc(-100% - 2rem));
 }
 
 #navbar.expanded .nav-list{
