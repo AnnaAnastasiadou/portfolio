@@ -11,7 +11,7 @@
     --bg-light: rgb(211, 211, 211);
     --menu-bg: rgb(15, 23, 42);
     --card-bg: rgb(17, 23, 47);
-    --border: rgb(155, 155, 155);
+    --border: rgba(155, 155, 155, 0.8);
     --border-radius: 25px;
 }
 
@@ -33,11 +33,7 @@ html, body {
 }
 
 body {
-    background: radial-gradient(
-        circle at center,
-        var(--bg-secondary),
-        var(--bg-primary) 
-    );
+    background-color: var(--bg-secondary);
     color: var(--text-light);
     font-family: Montserrat,'Roboto Mono', monospace;
     font-size: 14px;
@@ -73,8 +69,8 @@ body {
     content: "";
     display: block;
     width: 25px;
-    height: 2px;
-    background-color: var(--text-secondary);
+    height: 3px;
+    background-color: rgb(63, 113, 133);
     border-radius: 4px;
     position: absolute;
     transition: transform 0.15s ease;
@@ -109,9 +105,9 @@ body {
 
 #navbar {
     position: fixed;
-    top: 1rem;
-    left: 2%;
-    width: 96%;
+    top: 2rem;
+    left: 2rem;
+    width: calc( 100% - 4rem);
     text-transform: uppercase;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
@@ -162,9 +158,24 @@ body {
 
 section {
     min-height: 100vh;
-    border-bottom: 1px solid var(--border);
-    padding: 2rem;
+    margin: 2rem;
+    background: radial-gradient(
+        circle at center,
+        var(--bg-secondary),
+        var(--bg-primary) 
+    );
     overflow: auto;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+
+}
+
+section:last-of-type {
+    margin-bottom: 0;
+}
+
+section.light-background {
+    background: var(--bg-light);
 }
 
 h1 {
@@ -198,10 +209,7 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    width: 100%;
-    height: 100vh;
     box-sizing: border-box;
-    margin: 0 auto;
 }
 
 
@@ -343,13 +351,37 @@ ul {
     color: var(--bg-secondary);
 }
 
+#frontend-projects {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-tile {
+    background: var(--text-light);
+    color: var(--bg-secondary);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 400px;
+    min-width: 200px;
+}
+
+.project-tile img {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
 #contactme {
     background-color: var(--text-light);
     color: var(--bg-secondary);
 }
 
 footer {
-    background-color: var(--menu-bg);
+    background-color: var(--bg-secondary);
     padding: 20px;
     font-size: 0.8rem;
     text-align: center;
@@ -372,6 +404,69 @@ footer {
     }
 }
 
+#contactme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contactme form {
+    margin: 2rem 0;
+    width: 100%;
+    overflow: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+.form-group label {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    border: 2px solid var(--bg-secondary);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-light);
+    color: var(--bg-secondary);
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: rgb(63, 113, 133);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.contact-links a {
+    font-size: 0;
+}
+
+.contact-links a .emoji {
+    width: 40px; 
+    height: 40px;
+    vertical-align: middle;
+}
+
 
 @media screen and (min-width: 769px) {
     html{
@@ -388,6 +483,10 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         gap: 1rem;
+    }
+
+    #home {
+        margin-top: calc( 49px + 3rem);
     }
 
     .journey {

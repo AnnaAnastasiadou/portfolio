@@ -167,29 +167,66 @@
                             </div>
             </section>
             <section id="projects">
-                <h2>Projects</h2>
-                <div class="project-list">
-                        <h3 class="project-title">HTML and CSS Documentation Page</h3>
-                        <a href="https://annaanastasiadou.github.io/htmlCssIntroduction/" class="profile-link" target="_blank">
-                            <img src="./images/productLandingPage.png" alt="Documentation Screenshot" class="project-image">
+                <h3>Front End Projects</h3>
+                <p>Here are some of my projects that showcase my skills in front-end development.</p>
+                <div id="frontend-projects">
+                    <div class="project-tile">
+                        <h3>Survey Form</h3>
+                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/SurveyForm/" target="_blank">
+                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/formScreenshot.png" alt="Survey Form screenshot">
                         </a>
-                </div>
-                <div class="project-list">
-                        <h3 class="project-title">Project 2</h3>
-                        <a href="https://annaanastasiadou.github.io/htmlCssIntroduction/" class="profile-link" target="_blank">
-                            <img src="./images/productLandingPage.png" alt="Documentation Screenshot" class="project-image">
+                        <p>An interactive survey form with various input types.</p>
+                    </div>
+                    <div class="project-tile">
+                        <h3>Tribute Page</h3>
+                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/TributePage/" target="_blank">
+                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/tributeScreenshot.png" alt="Tribute Page screenshot">
                         </a>
-                </div>
-                <div class="project-list">
-                        <h3 class="project-title">Project 3</h3>
-                        <a href="https://annaanastasiadou.github.io/htmlCssIntroduction/" class="profile-link" target="_blank">
-                            <img src="./images/productLandingPage.png" alt="Documentation Screenshot" class="project-image">
+                        <p>A tribute page dedicated to Nikola Tesla, showcasing his life and contributions.</p>
+                    </div>
+                    <div class="project-tile">
+                        <h3>HTML/CSS Documentation</h3>
+                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/DocumentationPage/" target="_blank">
+                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/documentationScreenshot.png" alt="HTML/CSS Documentation screenshot">
                         </a>
+                        <p>A responsive documentation page built with HTML and CSS.</p>
+                    </div>
+                    <div class="project-tile">
+                        <h3>Product Landing Page</h3>
+                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/ProductLandingPage/" target="_blank">
+                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/productScreenshot.png" alt="Product Landing Page screenshot">
+                        </a>
+                        <p>A responsive product landing page with media queries.</p>
+                    </div>
                 </div>
             </section>
             <section id="contactme" class="light-background">
                 <h2>Contact Me</h2>
-                <p>If you would like to get in touch, please reach out via email at: <a href="mailto:">annaanast2002@gmail.com</a></p>
+                <p>If you would like to get in touch, please reach out:</p>
+                <form id="contact-form" action="https://formspree.io/f/mbljpzen" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <label for="surname">Surname:</label>
+                        <input type="text" id="surname" name="surname" placeholder="Your Surname"  required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Type a message" required></textarea>
+                    </div>
+                </form>
+                <h3>Social Media:</h3>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/anna-anastasiadou-46a873312/" target="_blank">
+                        <img src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin-icon" class="emoji">
+                    </a>
+                    <a id="profile-link" href="https://github.com/AnnaAnastasiadou" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/50/github.png" alt="github-icon" class="emoji">
+                    </a>
+                    <a href="mailto:annaanast2002@gmail.com">
+                        <img src="https://img.icons8.com/fluency/48/mail--v1.png" alt="email-icon" class="emoji">
+                    </a>
+                </div>
             </section>
         </main>
         <footer>
