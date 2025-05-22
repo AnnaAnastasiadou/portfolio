@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navList = document.querySelector('.nav-list');
     const navButtons = document.querySelectorAll('.nav-button');
+    const navbar = document.getElementById('navbar');
+    
+    // Variables for scroll handling
+    let isScrolling;
+    const SCROLL_DELAY = 150; // Adjust timing (ms) for when navbar reappears
     
     // Toggle menu function
     function toggleMenu() {
@@ -33,11 +38,25 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!hamburger.classList.contains('is-active')) {
                 navList.classList.remove('expanded');
             }
-
         }
     }
     
-    // Initialize and add event listener
+    // Scroll event handler
+    function handleScroll() {
+        // Hide navbar immediately when scrolling starts
+        navbar.classList.add('navbar-hidden');
+        
+        // Clear previous timeout to prevent reappearing too soon
+        window.clearTimeout(isScrolling);
+        
+        // Set timeout to show navbar after scrolling stops
+        isScrolling = setTimeout(function() {
+            navbar.classList.remove('navbar-hidden');
+        }, SCROLL_DELAY);
+    }
+    
+    // Initialize and add event listeners
     handleResize();
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 });
