@@ -450,6 +450,22 @@ footer {
     border-color: rgb(63, 113, 133);
 }
 
+.form-group input[type="submit"] {
+    background-color: var(--bg-secondary);
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.rem 1rem;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: rgb(63, 113, 133);
+    border: 2px solid rgb(63, 113, 133) ;
+    color: var(--bg-secondary);
+}
+
 .contact-links {
     display: flex;
     justify-content: center;
