@@ -176,6 +176,7 @@ section:last-of-type {
 
 section.light-background {
     background: var(--bg-light);
+    color: var(--bg-secondary)
 }
 
 h1 {
@@ -227,11 +228,6 @@ ul {
     max-width: 300px;
     min-width: 150px;
     height: auto;
-}
-
-#aboutme {
-    background-color: var(--bg-light);
-    color: var(--bg-primary);
 }
 
 .emoji {
@@ -376,35 +372,6 @@ ul {
 }
 
 #contactme {
-    background-color: var(--text-light);
-    color: var(--bg-secondary);
-}
-
-footer {
-    background-color: var(--bg-secondary);
-    padding: 20px;
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-    #home {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;   
-        text-align: center;
-    }
-
-    #home-text {
-        width: 100%; 
-    }
-
-    #home-image {
-        width: 50%;
-    }
-}
-
-#contactme {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -483,6 +450,44 @@ footer {
     vertical-align: middle;
 }
 
+
+footer {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.icon-attribution {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.icon-attribution a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.icon-attribution a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    #home {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;   
+        text-align: center;
+    }
+
+    #home-text {
+        width: 100%; 
+    }
+
+    #home-image {
+        width: 50%;
+    }
+}
 
 @media screen and (min-width: 769px) {
     html{
