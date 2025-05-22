@@ -1,14 +1,17 @@
+/*
+  ==========================
+  Global Reset & Variables
+  ==========================
+*/
 :root {
-    /*color variables*/
     --text-light: rgb(240, 240, 240);
     --text-secondary: rgb(127, 219, 255);
     --bg-primary: rgb(7, 3, 23);
     --bg-secondary: rgb(17, 23, 47);
     --bg-light: rgb(211, 211, 211);
-    --menu-bg: rgba(15, 23, 42, 0.8);
-    --card-bg: rgb(17, 23, 47);/*rgba(15, 23, 42, 0.8);*/
-
-    /*radius*/
+    --menu-bg: rgb(15, 23, 42);
+    --card-bg: rgb(17, 23, 47);
+    --border: rgb(155, 155, 155);
     --border-radius: 25px;
 }
 
@@ -36,10 +39,11 @@ body {
     scroll-behavior: smooth;
 }
 
-*::selection {
-    background: #380375;
-}
-
+/*
+  ==========================
+  Navigation (Hamburger & Navbar)
+  ==========================
+*/
 .hamburger {
     display: block;
     cursor: pointer;
@@ -56,8 +60,7 @@ body {
     width: 25px;
     height: 20px;
     display: inline-block;
-    position: relative;
-}
+    position: relative;}
 
 .hamburger-inner,
 .hamburger-inner::before,
@@ -66,7 +69,7 @@ body {
     display: block;
     width: 25px;
     height: 2px;
-    background-color: var(--text-light);
+    background-color: var(--text-secondary);
     border-radius: 4px;
     position: absolute;
     transition: transform 0.15s ease;
@@ -85,6 +88,10 @@ body {
     top: 8px;
 }
 
+.hamburger.is-active .hamburger-inner {
+    background-color: transparent;
+}
+
 .hamburger.is-active .hamburger-inner::after {
     transform: translateY(-50%) rotate(45deg);
     top: 50%;
@@ -95,31 +102,15 @@ body {
     top: 50%;
 }
 
-.hamburger.is-active .hamburger-inner {
-    background-color: transparent;
-}
-
 #navbar {
     position: fixed;
-    top: 0;
+    top: 1rem;
     left: 2%;
     width: 96%;
-    padding-top: 1%;
-    border-radius: 0 0 25px 25px;
     text-transform: uppercase;
-    background: transparent;
-    border: none;
     z-index: 1000;
-    transition: all 0.1s ease;
-}    
-
-#navbar {
-    transition: transform 0.3s ease-in-out;
-}
-
-.navbar-hidden {
-    transform: translateY(-100%);
-}
+    transition: all 0.3s ease-in-out;
+}      
 
 .nav-list {
     position: relative;
@@ -133,19 +124,22 @@ body {
     margin: 0;
     font-weight: 600;
     max-height: 0;
+    border-radius: var(--border-radius);
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s ease;
 }
 
-.nav-list.expanded {
+.navbar-hidden {
+    transform: translateY(calc(-100% - 1rem));
+}
+
+#navbar.expanded .nav-list{
     max-height: 200px;
     opacity: 1;
-    padding-top: 15px;
     background: var(--menu-bg); 
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid var(--border);
     padding: 15px;
-    border-radius: var(--border-radius);  
 }
 
 .nav-button {
@@ -162,8 +156,10 @@ body {
 }
 
 section {
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+    min-height: 100vh;
+    border-bottom: 1px solid var(--border);
     padding: 2em;
+    overflow: hidden;
 }
 
 h1 {
@@ -188,7 +184,7 @@ h1, h2, h3 {
 
 ul {
     padding: 0;
-    margin: 0 0 0 20px;
+    margin-left: 20px;
 }
 
 #home {
@@ -262,7 +258,7 @@ ul {
 
 .degree, .internship, .skill-category {
     display: block;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--border);
     border-radius: var(--border-radius);
     padding: 20px;
     background: var(--card-bg);
@@ -388,20 +384,12 @@ footer {
         display: none;
     }
 
-    #navbar {
-        background: transparent;/*var(--bg-primary)*/
-    }
-
     .nav-list {
         max-height: none;
         padding: 0;
         flex-direction: row;
         justify-content: flex-start;
         gap: 1em;
-    }
-
-    .nav-list.expanded {
-        background-color: rgb(15, 23, 42);
     }
 
     .journey {

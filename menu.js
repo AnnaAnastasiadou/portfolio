@@ -1,62 +1,69 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
-    const navList = document.querySelector('.nav-list');
     const navButtons = document.querySelectorAll('.nav-button');
     const navbar = document.getElementById('navbar');
-    
-    // Variables for scroll handling
-    let isScrolling;
-    const SCROLL_DELAY = 150; // Adjust timing (ms) for when navbar reappears
-    
-    // Toggle menu function
-    function toggleMenu() {
-        hamburger.classList.toggle('is-active');
-        navList.classList.toggle('expanded');
-    }
-    
-    // Hamburger click event
-    hamburger.addEventListener('click', toggleMenu);
-    
-    // Close menu when nav button is clicked (mobile only)
-    navButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                toggleMenu();
-            }
-        });
-    });
-    
-    // Handle window resize
-    function handleResize() {
-        if (window.innerWidth > 768) {
-            // Desktop - ensure menu is always visible
-            hamburger.classList.remove('is-active');
-            navList.classList.add('expanded');
-        } else {
-            // Mobile - ensure proper initial state
-            if (!hamburger.classList.contains('is-active')) {
-                navList.classList.remove('expanded');
-            }
+
+    let lastScrollPosition = window.pageYOffset;
+    const SCROLL_THRESHOLD = 50;
+    let isMenuOpen = false;
+
+    function toggleMenu(shouldOpen) {
+        if (window.innerWidth <= 768) {
+            isMenuOpen = typeof shouldOpen === 'boolean' ? shouldOpen : !isMenuOpen;
+            hamburger.classList.toggle('is-active', isMenuOpen);
+            navbar.classList.toggle('expanded', isMenuOpen);
         }
     }
-    
-    // Scroll event handler
+
     function handleScroll() {
-        // Hide navbar immediately when scrolling starts
-        navbar.classList.add('navbar-hidden');
-        
-        // Clear previous timeout to prevent reappearing too soon
-        window.clearTimeout(isScrolling);
-        
-        // Set timeout to show navbar after scrolling stops
-        isScrolling = setTimeout(function() {
+        const currentScroll = window.pageYOffset;
+
+        if (window.innerWidth <= 768) {
+            // Mobile: Close menu if scrolling down
+            if (currentScroll > lastScrollPosition && isMenuOpen) {
+                toggleMenu(false);
+            }
+            // Show navbar when scrolling up
+            if (currentScroll < lastScrollPosition) {
+                navbar.classList.remove('navbar-hidden');
+            }
+        }
+
+        // Hide navbar when scrolling down past threshold
+        if (currentScroll > lastScrollPosition && currentScroll > SCROLL_THRESHOLD) {
+            navbar.classList.add('navbar-hidden');
+        } else if (currentScroll < lastScrollPosition) {
             navbar.classList.remove('navbar-hidden');
-        }, SCROLL_DELAY);
+        }
+
+        lastScrollPosition = currentScroll;
+        if (window.innerWidth < 768) {
+            navbar.classList.remove('navbar-hidden');
+        }
     }
-    
-    // Initialize and add event listeners
-    handleResize();
-    window.addEventListener('resize', handleResize);
+
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            toggleMenu(false); // Close mobile menu state
+            navbar.classList.remove('navbar-hidden');
+            navbar.classList.add('expanded'); // ✅ Ensure menu is visible on desktop
+            hamburger.classList.remove('is-active'); // Optionally reset hamburger icon
+        }
+        if (window.innerWidth <= 768) {
+            navbar.classList.remove('expanded'); // Remove expanded class on mobile
+        }
+    }
+
+    // Event listeners
+    hamburger.addEventListener('click', () => toggleMenu());
+    navButtons.forEach(btn =>
+        btn.addEventListener('click', () => {
+            if (window.innerWidth <= 768) toggleMenu(false);
+        })
+    );
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+
+    // Init
+    handleResize();
 });
