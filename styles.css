@@ -15,18 +15,21 @@
     --border-radius: 25px;
 }
 
+/* Reset box model for all elements */
 *,
 *::before,
 *::after { 
     box-sizing: border-box;
 }
 
+/* Base html styles */
 html {
     font-size: 14px;
     scroll-behavior: smooth;
     color-scheme: light;
 }
 
+/* Reset body margins and set base styles */
 html, body {
     height: 100%;
     margin: 0;
@@ -46,6 +49,7 @@ body {
   Navigation (Hamburger & Navbar)
   ==========================
 */
+/* Hamburger menu styles */
 .hamburger {
     display: block;
     cursor: pointer;
@@ -62,8 +66,12 @@ body {
     width: 25px;
     height: 20px;
     display: inline-block;
-    position: relative;}
+    position: relative;
+    background-color: transparent;
+}
 
+
+/* Hamburger icon lines */
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
@@ -90,6 +98,7 @@ body {
     top: 8px;
 }
 
+/* Active state for hamburger menu (transforms into X) */
 .hamburger.is-active .hamburger-inner {
     background-color: transparent;
 }
@@ -104,6 +113,7 @@ body {
     top: 50%;
 }
 
+/* Navbar positioning and styling */
 #navbar {
     position: fixed;
     top: 2rem;
@@ -114,6 +124,7 @@ body {
     transition: all 0.3s ease-in-out;
 }      
 
+/* Navbar buttons list */
 .nav-list {
     position: relative;
     width: 100%;
@@ -132,10 +143,12 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Class to hide navbar when scrolling down */
 .navbar-hidden {
     transform: translateY(calc(-100% - 2rem));
 }
 
+/* Expanded state for /tablet menu (when hamburger button is clicked) */
 #navbar.expanded .nav-list{
     max-height: 200px;
     opacity: 1;
@@ -144,6 +157,7 @@ body {
     padding: 15px;
 }
 
+/* Navigation button styles */
 .nav-button {
     color: var(--text-light);
     text-decoration: none;
@@ -157,6 +171,7 @@ body {
     border-radius: 4px;
 }
 
+/* Section base styles */
 section {
     min-height: 100vh;
     margin: 2rem;
@@ -171,16 +186,19 @@ section {
 
 }
 
+/* Remove bottom margin from last section because the footer already has big paddings */
 section:last-of-type {
     margin-bottom: 0;
 }
 
+/* Light background for every other section */
 section.light-background {
     background: var(--bg-light);
     color: var(--bg-secondary);
 
 }
 
+/* Typography styles */
 h1 {
     font-size: 2.3rem;
 }
@@ -212,7 +230,6 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    box-sizing: border-box;
 }
 
 
@@ -244,6 +261,8 @@ ul {
 
 }
 
+/* Journey timeline layout: 1 column and 5 rows
+auto rows: journey cards, 40px rows: arrows*/
 .journey {
     display: grid;
     grid-template-columns: 1fr;
@@ -252,6 +271,8 @@ ul {
     max-width: 800px;
 }
 
+/* Skills layout: 1 column and 3 rows
+auto rows: skills cards (no arrows)*/
 .skills {
     display: grid;
     grid-template-columns: 1fr; 
@@ -267,6 +288,7 @@ ul {
     color: var(--text-light);
 }
 
+/* Card styling for degree, internship and skill categories */
 .degree, .internship, .skill-category {
     display: block;
     border: 1px solid var(--border);
@@ -277,6 +299,7 @@ ul {
     justify-content: center;
 }
 
+/* Grid positioning for mobile/tablet layout */
 #bsc, #frontend {
     grid-row: 1/2;     
 }
@@ -297,6 +320,7 @@ ul {
     grid-row: 5/6;
 }
 
+/* Arrow styling for timeline (all arrows vertical for mobile/tablet)*/
 .first-arrow,
 .second-arrow {
     position: relative;
@@ -322,6 +346,7 @@ ul {
     margin: 0 auto;
 }
 
+/* Call-to-action button styling */
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -349,6 +374,7 @@ ul {
     color: var(--bg-secondary);
 }
 
+/* Projects section styling */
 #frontend-projects {
     width: 100%;
     display: flex;
@@ -373,6 +399,7 @@ ul {
     margin: 1rem 0;
 }
 
+/* Contact section styling */
 #contactme {
     display: flex;
     flex-direction: column;
@@ -452,7 +479,7 @@ ul {
     vertical-align: middle;
 }
 
-
+/* Footer styling */
 footer {
     background-color: var(--bg-secondary);
     padding: 20px;
@@ -474,7 +501,12 @@ footer {
     text-decoration: underline;
 }
 
-
+/*
+  ==========================
+  Media Queries
+  ==========================
+*/
+/* Mobile/tablet styles */
 @media screen and (max-width: 768px) {
     #home {
         flex-direction: column;
@@ -492,15 +524,19 @@ footer {
     }
 }
 
+/* Desktop styles */
 @media screen and (min-width: 769px) {
+    /* Increase base font size */
     html{
         font-size: 16px;
     }
 
+    /* Hide hamburger menu on desktop */
     .hamburger {
         display: none;
     }
 
+    /* Show navigation list horizontally */
     .nav-list {
         max-height: none;
         padding: 0;
@@ -509,10 +545,16 @@ footer {
         gap: 1rem;
     }
 
+    /* Adjust home section margin to account for fixed navbar */
     #home {
         margin-top: calc( 49px + 3rem);
     }
 
+    /* 
+    Desktop layout for journey timeline 
+    1 column and 3 rows
+    auto rows: journey cards, 40px rows: arrows
+    */
     .journey {
         display: grid;
         grid-template-columns: 1fr 40px 1fr; 
@@ -520,6 +562,7 @@ footer {
         gap: 20px;                     
     }
 
+    /* Desktop layout for skills (no arrows) */
     .skills {
         display: grid;
         grid-template-columns: auto auto auto;        
@@ -528,6 +571,7 @@ footer {
         margin: 0 auto;                 
     }
 
+    /* Grid positioning for desktop journey timeline */
     #bsc {
         grid-column: 1/2;  
         grid-row: 1/2;    
@@ -543,12 +587,14 @@ footer {
         grid-row: 3/4;     
     }
 
+    /* skills in a row for desktops */
     #frontend, #backend, #tools {
         grid-column: auto;
         grid-row: auto;
         justify-self: auto;
     }
 
+    /* First arrow horizontal for desktop */
     .first-arrow {
         grid-column: 2/3;  
         grid-row: 1/2;     

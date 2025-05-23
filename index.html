@@ -5,19 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Anna Anastasiadou - Portfolio</title>
         <link rel="stylesheet" href="./styles.css">
+        <!-- Google Fonts - Monserrat -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Menu funcionality -->
         <script src="menu.js" defer></script>
     </head>
     <body>
+        <!-- Navigation bar with hamburger menu (for mobile) -->
         <nav id="navbar">
             <button class="hamburger" aria-label="Toggle menu">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
+             <!-- Navigation links that collapse when the hamburger button is clicked-->
             <ul class="nav-list collapsible">
                 <li><a class="nav-button" href="#home">Home</a></li>
                 <li><a class="nav-button" href="#aboutme">About Me</a></li>
@@ -26,6 +29,7 @@
             </ul>
         </nav>
         <main id="main-content">
+            <!-- Home/hero section -->
             <section id="home">
                 <div id="home-text">
                     <h1>Hi, I'm Anna Anastasiadou</h1>
@@ -34,6 +38,7 @@
                 </div>
                 <img src="./images/womanCoding.png" alt="cartoon of a woman coding" id="home-image">
             </section>
+             <!-- About Me section includes education, internship, skills and hobbies-->
             <section id="aboutme" class="light-background">
                     <h2>Let Me Introduce Myself</h2>
                         <p class="intro">
@@ -149,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- Call-to-action section -->
                             <div class="cta-section">
                                 <h3>Let's Build Something Together</h3>
                                 <p>I'm currently available for web development projects in Cyprus and internationally, eager to expand my expertise while delivering exceptional results.</p>
@@ -166,6 +171,7 @@
                                 </div>
                             </div>
             </section>
+            <!-- Projects section is divided in fronted and backend projects -->
             <section id="projects">
                 <h3>Front End Projects</h3>
                 <p>Here are some of my projects that showcase my skills in front-end development.</p>
@@ -200,6 +206,7 @@
                     </div>
                 </div>
             </section>
+            <!-- Contact me section includes a cocntact form that uses formspree to accept the messages. Also includes social media links -->
             <section id="contactme" class="light-background">
                 <h2>Contact Me</h2>
                 <p>If you would like to get in touch, please reach out:</p>
