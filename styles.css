@@ -13,8 +13,6 @@
     --card-bg: rgb(17, 23, 47);
     --border: rgba(155, 155, 155, 0.8);
     --border-radius: 25px;
-    color-scheme: light; /* Force light scheme */
-
 }
 
 *,
@@ -178,10 +176,8 @@ section:last-of-type {
 }
 
 section.light-background {
-    background: var(--bg-light) !important;
+    background: var(--bg-light);
     color: var(--bg-secondary);
-    /* Remove any existing gradients */
-    background-image: none !important;
 
 }
 
@@ -439,14 +435,6 @@ ul {
     color: var(--bg-secondary);
 }
 
-/* Ensure form elements stay light */
-input, textarea, select, button {
-    color-scheme: light;
-    background-color: var(--bg-light) !important;  
-    color: var(--bg-secondary) !important;
-
-}
-
 .contact-links {
     display: flex;
     justify-content: center;
@@ -593,24 +581,3 @@ footer {
 
 }
 
-/* Double protection against dark mode */
-@media (prefers-color-scheme: dark) {
-    section.light-background {
-        background: var(--bg-light) !important;
-        color: var(--bg-secondary) !important;
-    }
-}
-
-/*
-  ==========================
-  Form Elements Protection
-  ==========================
-*/
-input,
-textarea,
-select,
-button {
-    color-scheme: light !important;
-    background-color: var(--bg-light) !important;
-    color: var(--bg-secondary) !important;
-}
