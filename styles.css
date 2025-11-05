@@ -1,24 +1,34 @@
-/*
-  ==========================
-  Global Reset & Variables
-  ==========================
-*/
+/* Global Reset & Variables */
 :root {
     --text-light: rgb(240, 240, 240);
     --text-secondary: rgb(127, 219, 255);
+    --text-dark: rgb(7, 3, 23);
     --bg-primary: rgb(7, 3, 23);
     --bg-secondary: rgb(17, 23, 47);
-    --bg-light: rgb(211, 211, 211);
+    --bg-light: rgb(255, 255, 255);
     --menu-bg: rgb(15, 23, 42);
-    --card-bg: rgb(17, 23, 47);
+    --card-bg-dark: rgb(17, 23, 47);
+    --card-bg: rgb(198, 221, 252);
+    --card-title: rgb(19, 60, 102);
+    --card-title-light: rgba(240, 240, 240, 0.9);
+    --card-subtitle: rgba(59, 92, 138, 1);
+    --card-text: rgb(19, 60, 102);
+    --accent-primary: rgb(127, 219, 255);
+    --accent-secondary: rgb(59, 146, 227);
+
     --border: rgba(155, 155, 155, 0.8);
     --border-radius: 25px;
+    --shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+    --shadow-inset: inset 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+    --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.2);
+
+    --transition: all 0.3s ease-in-out;
 }
 
 /* Reset box model for all elements */
 *,
 *::before,
-*::after { 
+*::after {
     box-sizing: border-box;
 }
 
@@ -26,29 +36,32 @@
 html {
     font-size: 14px;
     scroll-behavior: smooth;
-    color-scheme: light;
 }
 
 /* Reset body margins and set base styles */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: var(--bg-secondary);
+    background-color: rgba(198, 221, 252, 0.5);
+
+    background-size: cover;
+    background-repeat: none;
+
     color: var(--text-light);
-    font-family: Montserrat,'Roboto Mono', monospace;
+    font-family: Montserrat, 'Roboto Mono', monospace;
+    line-height: 1.6;
     font-size: 14px;
     scroll-behavior: smooth;
+
+    text-align: center;
 }
 
-/*
-  ==========================
-  Navigation (Hamburger & Navbar)
-  ==========================
-*/
+/* Navigation (Hamburger & Navbar) */
 /* Hamburger menu styles */
 .hamburger {
     display: block;
@@ -57,9 +70,10 @@ body {
     border: 0;
     padding: 15px;
     position: absolute;
-    right: -3px;
-    top: 5px;
+    right: -5px;
+    top: 2rem;
     z-index: 1000;
+    transition: var(--transition);
 }
 
 .hamburger-box {
@@ -70,19 +84,26 @@ body {
     background-color: transparent;
 }
 
-
 /* Hamburger icon lines */
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-    content: "";
+    content: '';
     display: block;
     width: 25px;
     height: 3px;
-    background-color: rgb(63, 113, 133);
-    border-radius: 4px;
+    background-color: var(--accent-secondary);
+    border-radius: 3px;
+    border: 0.5px solid var(--bg-primary);
     position: absolute;
-    transition: transform 0.15s ease;
+    right: 0;
+    transition: var(--transition);
+}
+
+.hamburger:hover .hamburger-inner,
+.hamburger:hover .hamburger-inner::before,
+.hamburger:hover .hamburger-inner::after {
+    background-color: var(--accent-primary);
 }
 
 .hamburger-inner {
@@ -92,10 +113,12 @@ body {
 
 .hamburger-inner::before {
     top: -8px;
+    right: -0.5px;
 }
 
 .hamburger-inner::after {
     top: 8px;
+    right: -0.5px;
 }
 
 /* Active state for hamburger menu (transforms into X) */
@@ -116,13 +139,13 @@ body {
 /* Navbar positioning and styling */
 #navbar {
     position: fixed;
-    top: 2rem;
+    top: 0.1rem;
     left: 2rem;
-    width: calc( 100% - 4rem);
+    width: calc(100% - 4rem);
     text-transform: uppercase;
     z-index: 1000;
-    transition: all 0.3s ease-in-out;
-}      
+    transition: var(--transition);
+}
 
 /* Navbar buttons list */
 .nav-list {
@@ -131,7 +154,7 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     text-align: center;
     padding: 0;
     margin: 0;
@@ -140,7 +163,7 @@ body {
     border-radius: var(--border-radius);
     overflow: hidden;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 /* Class to hide navbar when scrolling down */
@@ -149,10 +172,10 @@ body {
 }
 
 /* Expanded state for /tablet menu (when hamburger button is clicked) */
-#navbar.expanded .nav-list{
+#navbar.expanded .nav-list {
     max-height: 200px;
     opacity: 1;
-    background: var(--menu-bg); 
+    background: var(--menu-bg);
     border: 1px solid var(--border);
     padding: 15px;
 }
@@ -178,50 +201,52 @@ section {
     background: radial-gradient(
         circle at center,
         var(--bg-secondary),
-        var(--bg-primary) 
+        var(--bg-primary)
     );
     overflow: auto;
     border-radius: var(--border-radius);
     padding: 2rem;
-
-}
-
-/* Remove bottom margin from last section because the footer already has big paddings */
-section:last-of-type {
-    margin-bottom: 0;
+    box-shadow: var(--shadow);
 }
 
 /* Light background for every other section */
 section.light-background {
     background: var(--bg-light);
     color: var(--bg-secondary);
-
 }
 
 /* Typography styles */
 h1 {
     font-size: 2.3rem;
+    background: linear-gradient(
+        135deg,
+        var(--text-light) 0%,
+        var(--text-secondary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 h2 {
     font-size: 1.8rem;
+    margin: 2rem 0 1rem;
 }
 
 h3 {
     font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
 }
 
 h4 {
     font-size: 1.2rem;
+    margin: 1rem 0 0.5rem;
 }
 
-h1, h2, h3 {
-    margin: 1rem 0;
-}
-
-ul {
-    padding: 0;
-    margin-left: 20px;
+h1,
+h2,
+h3 {
+    font-weight: 600;
 }
 
 #home {
@@ -232,14 +257,14 @@ ul {
     gap: 2rem;
 }
 
-
 #home-text h1 {
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
 }
 
 #home-text h2 {
-    color:  var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 #home-image {
@@ -247,18 +272,43 @@ ul {
     max-width: 300px;
     min-width: 150px;
     height: auto;
+    transition: var(--transition);
+}
+
+#home-image:hover {
+    transform: scale(1.05);
 }
 
 .emoji {
-    width: 20px; 
+    width: 20px;
     height: 20px;
     vertical-align: middle;
 }
 
-.degree-title, .internship-title, .skills-title {
+.intro {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+#aboutme ul {
+    padding: 0;
+    margin-left: 20px;
+}
+
+#aboutme li {
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.degree-title,
+.internship-title {
     margin-top: 0;
     text-align: center;
-
+    font-weight: 600;
+    color: var(--card-title);
 }
 
 /* Journey timeline layout: 1 column and 5 rows
@@ -275,48 +325,148 @@ auto rows: journey cards, 40px rows: arrows*/
 auto rows: skills cards (no arrows)*/
 .skills {
     display: grid;
-    grid-template-columns: 1fr; 
-    grid-template-rows: auto auto auto;  
-    gap: 20px;    
-    max-width: 300px;           
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    max-width: 300px;
 }
 
-.journey, .skills {
+.journey,
+.skills {
     padding: 40px 10px;
     overflow: auto;
     margin: 0 auto;
-    color: var(--text-light);
+    color: var(--card-text);
 }
 
 /* Card styling for degree, internship and skill categories */
-.degree, .internship, .skill-category {
+.degree,
+.internship,
+.skill-category {
     display: block;
-    border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    padding: 20px;
-    background: var(--card-bg);
+    padding: 2rem;
     margin: 0 auto;
     justify-content: center;
+    transition: var(--transition);
+}
+
+.degree,
+.internship {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    background: linear-gradient(
+        135deg,
+        var(--card-bg) 0%,
+        rgba(255, 255, 255, 0.9) 100%
+    );
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.degree::before,
+.internship::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+}
+
+.degree:hover,
+.internship:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.degree-title,
+.internship-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--card-title);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(
+        135deg,
+        var(--card-title) 0%,
+        var(--accent-secondary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.university,
+.company {
+    color: var(--card-subtitle);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.degree-highlights,
+.internship-skills {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+.degree-highlights li,
+.internship-skills li {
+    text-align: left;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: var(--card-text);
+}
+
+.degree-highlights li::before,
+.internship-skills li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-secondary);
+    font-weight: bold;
+}
+
+.degree:hover,
+.internship:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 /* Grid positioning for mobile/tablet layout */
-#bsc, #frontend {
-    grid-row: 1/2;     
+#bsc,
+#frontend {
+    grid-row: 1/2;
 }
 
 .first-arrow {
-    grid-row: 2/3;     
+    grid-row: 2/3;
 }
 
-#internship, #backend {
-     grid-row: 3/4;
+#internship,
+#backend {
+    grid-row: 3/4;
 }
 
 .second-arrow {
-    grid-row: 4/5;     
+    grid-row: 4/5;
 }
 
-#msc, #tools {
+#msc,
+#tools {
     grid-row: 5/6;
 }
 
@@ -346,6 +496,103 @@ auto rows: skills cards (no arrows)*/
     margin: 0 auto;
 }
 
+.university,
+.company {
+    color: var(--card-subtitle);
+    font-weight: 700;
+}
+
+.skill-category {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    background: linear-gradient(
+        135deg,
+        var(--card-bg-dark) 0%,
+        rgba(23, 31, 59, 0.9) 100%
+    );
+    margin: 0 auto;
+    max-width: 300px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--accent-primary),
+        var(--accent-secondary)
+    );
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    border-color: rgba(127, 219, 255, 0.3);
+}
+
+.skill-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(
+        135deg,
+        var(--text-light) 0%,
+        var(--accent-primary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(127, 219, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skill-header img {
+    width: auto;
+    height: 2rem;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+.skill-category li {
+    text-align: left;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.skill-category li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.skill-category li:hover {
+    color: var(--text-secondary);
+    transform: translateX(5px);
+}
+
 /* Call-to-action button styling */
 .cta-buttons {
     display: flex;
@@ -356,22 +603,31 @@ auto rows: skills cards (no arrows)*/
 }
 
 .cta-section a {
-    background: var(--bg-secondary);
-    color: var(--text-light);
+    background: var(--card-bg);
+    color: var(--text-dark);
     display: inline-block;
     padding: 10px;
-    border: 2px solid var(--bg-secondary);
+    border: 2px solid var(--bg-card);
     border-radius: var(--border-radius);
     margin: 5px;
     text-decoration: none;
-    color: var(--text-light);
     cursor: pointer;
     font-weight: 600;
+    box-shadow: 0.2rem 0.2rem 0.2rem var(--bg-primary);
+    transition: var(--transition);
 }
 
 .cta-section a:hover {
-    background: var(--text-light);
-    color: var(--bg-secondary);
+    background: var(--bg-secondary);
+    color: var(--text-light);
+    border-color: var(--bg-secondary);
+    box-shadow: 0.1rem 0.1rem 0.2rem var(--bg-primary);
+    transform: translate(0.1rem, 0.1rem);
+}
+
+.cta-section a:active {
+    box-shadow: none;
+    transform: translate(0.2rem, 0.2rem);
 }
 
 /* Projects section styling */
@@ -388,15 +644,26 @@ auto rows: skills cards (no arrows)*/
     border-radius: 5px;
     padding: 1rem;
     margin: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     min-width: 200px;
 }
 
+.project-tile .img-wrap {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+
 .project-tile img {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 1rem 0;
+    transition: transform 0.3s ease;
+}
+
+.project-tile img:hover {
+    transform: scale(1.1);
 }
 
 /* Contact section styling */
@@ -407,116 +674,140 @@ auto rows: skills cards (no arrows)*/
     align-items: center;
 }
 
+#contactme p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: var(--card-text);
+    line-height: 1.7;
+}
+
 #contactme form {
     margin: 2rem 0;
     width: 100%;
-    overflow: auto;
+    max-width: 600px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    max-width: 400px;
-    min-width: 200px;
+    gap: 1.5rem;
     margin: 0 auto;
-    padding: 1rem;
-    background-color: var(--bg-secondary);
-    border: 2px solid var(--bg-secondary);
+    padding: 2.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(127, 219, 255, 0.2);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .form-group label {
-    color: var(--text-light);
+    color: var(--card-title);
     font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: -0.5rem;
 }
 
-.form-group input, .form-group textarea {
-    padding: 10px;
-    border: 2px solid var(--bg-secondary);
-    border-radius: var(--border-radius);
+.form-group input,
+.form-group textarea {
+    padding: 15px;
+    border: 2px solid var(--accent-secondary);
+    border-radius: 12px;
     background-color: var(--bg-light);
-    color: var(--bg-secondary);
-    font-size: 0.8rem;
+    color: var(--card-text);
+    font-size: 1rem;
     font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
-    border-color: rgb(63, 113, 133);
+    border-color: var(--bg-secondary);
+    box-shadow: 0 0 0 3px rgba(59, 146, 227, 0.1);
+    transform: translateY(-2px);
 }
 
-.form-group input[type="submit"] {
-    background-color: var(--bg-secondary);
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(19, 60, 102, 0.5);
+}
+
+.form-group input[type='submit'] {
+    background: var(--bg-secondary);
+    box-shadow: 0 0.3rem 0.2rem rgb(133, 131, 131);
+    border: none;
     color: var(--text-light);
-    border: 2px solid var(--text-light);
+    border-radius: var(--border-radius);
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
-    padding: 0.rem 1rem;
+    padding: 1rem 2rem;
+    max-width: 200px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
 }
 
-.form-group input[type="submit"]:hover {
-    background-color: rgb(63, 113, 133);
-    border: 2px solid rgb(63, 113, 133) ;
+.form-group input[type='submit']:hover {
+    background-color: var(--accent-secondary);
     color: var(--bg-secondary);
+    transform: translateY(0.2rem);
+    box-shadow: 0 0.1rem 0.2rem rgb(133, 131, 131);
+}
+
+.form-group input[type='submit']:active {
+    transform: translateY(0.3rem);
+    box-shadow: 0 0rem 0.2rem rgb(133, 131, 131);
+}
+
+.social-media-header {
+    margin-bottom: 0rem;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0 2rem 0;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+    flex-wrap: wrap;
 }
 
 .contact-links a {
-    font-size: 0;
+    transition: transform 0.4s ease;
+}
+
+.contact-links a:hover {
+    transform: translateY(-5px) scale(1.1);
 }
 
 .contact-links a .emoji {
-    width: 40px; 
-    height: 40px;
-    vertical-align: middle;
+    width: 3rem;
+    height: auto;
+    position: relative;
+    z-index: 1;
 }
 
 /* Footer styling */
 footer {
     background-color: var(--bg-secondary);
-    padding: 20px;
-    font-size: 0.8rem;
+    padding: 1.5rem;
+    font-size: 0.9rem;
     text-align: center;
 }
 
-.icon-attribution {
-    font-size: 0.7rem;
-    opacity: 0.8;
-}
-
-.icon-attribution a {
-    color: var(--text-secondary);
-    text-decoration: none;
-}
-
-.icon-attribution a:hover {
-    text-decoration: underline;
-}
-
-/*
-  ==========================
-  Media Queries
-  ==========================
-*/
 /* Mobile/tablet styles */
 @media screen and (max-width: 768px) {
     #home {
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem;   
+        padding: 1rem;
         text-align: center;
     }
 
     #home-text {
-        width: 100%; 
+        width: 100%;
     }
 
     #home-image {
@@ -527,7 +818,7 @@ footer {
 /* Desktop styles */
 @media screen and (min-width: 769px) {
     /* Increase base font size */
-    html{
+    html {
         font-size: 16px;
     }
 
@@ -547,7 +838,7 @@ footer {
 
     /* Adjust home section margin to account for fixed navbar */
     #home {
-        margin-top: calc( 49px + 3rem);
+        margin-top: calc(49px + 1rem);
     }
 
     /* 
@@ -557,38 +848,40 @@ footer {
     */
     .journey {
         display: grid;
-        grid-template-columns: 1fr 40px 1fr; 
-        grid-template-rows: auto 40px auto;  
-        gap: 20px;                     
+        grid-template-columns: 1fr 40px 1fr;
+        grid-template-rows: auto 40px auto;
+        gap: 20px;
     }
 
     /* Desktop layout for skills (no arrows) */
     .skills {
         display: grid;
-        grid-template-columns: auto auto auto;        
-        grid-template-rows: 1fr;  
-        max-width: 800px;   
-        margin: 0 auto;                 
+        grid-template-columns: auto auto auto;
+        grid-template-rows: 1fr;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     /* Grid positioning for desktop journey timeline */
     #bsc {
-        grid-column: 1/2;  
-        grid-row: 1/2;    
+        grid-column: 1/2;
+        grid-row: 1/2;
     }
 
     #internship {
-        grid-column: 3/4;  
+        grid-column: 3/4;
         grid-row: 1/2;
     }
 
     #msc {
-        grid-column: 3/4;  
-        grid-row: 3/4;     
+        grid-column: 3/4;
+        grid-row: 3/4;
     }
 
     /* skills in a row for desktops */
-    #frontend, #backend, #tools {
+    #frontend,
+    #backend,
+    #tools {
         grid-column: auto;
         grid-row: auto;
         justify-self: auto;
@@ -596,8 +889,8 @@ footer {
 
     /* First arrow horizontal for desktop */
     .first-arrow {
-        grid-column: 2/3;  
-        grid-row: 1/2;     
+        grid-column: 2/3;
+        grid-row: 1/2;
         width: 100%;
         height: 15px;
         margin: auto;
@@ -621,9 +914,7 @@ footer {
     }
 
     .second-arrow {
-        grid-column: 3/4;  
-        grid-row: 2/3; 
+        grid-column: 3/4;
+        grid-row: 2/3;
     }
-
 }
-

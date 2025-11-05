@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Anna Anastasiadou - Portfolio</title>
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./styles.css" />
         <!-- Google Fonts - Monserrat -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        />
         <!-- Menu funcionality -->
         <script src="menu.js" defer></script>
+        <script src="formValidation.js" defer></script>
     </head>
     <body>
         <!-- Navigation bar with hamburger menu (for mobile) -->
@@ -20,7 +24,7 @@
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-             <!-- Navigation links that collapse when the hamburger button is clicked-->
+            <!-- Navigation links that collapse when the hamburger button is clicked-->
             <ul class="nav-list collapsible">
                 <li><a class="nav-button" href="#home">Home</a></li>
                 <li><a class="nav-button" href="#aboutme">About Me</a></li>
@@ -34,175 +38,384 @@
                 <div id="home-text">
                     <h1>Hi, I'm Anna Anastasiadou</h1>
                     <h2>WEB DEVELOPER</h2>
-                    <p class="tagline">Bringing scientific precision from physics to web development.</p>
+                    <p class="tagline">
+                        Bringing scientific precision from physics to web
+                        development.
+                    </p>
                 </div>
-                <img src="./images/womanCoding.png" alt="cartoon of a woman coding" id="home-image">
+                <img
+                    src="./images/womanCoding.png"
+                    alt="cartoon of a woman coding"
+                    id="home-image"
+                />
             </section>
-             <!-- About Me section includes education, internship, skills and hobbies-->
+            <!-- About Me section includes education, internship, skills and hobbies-->
             <section id="aboutme" class="light-background">
-                    <h2>Let Me Introduce Myself</h2>
-                        <p class="intro">
-                            <img class="emoji" src="https://img.icons8.com/emoji/48/waving-hand-emoji.png" alt="waving-hand-emoji">
-                            Γεια σου! I'm Anna - a passionate web developer based in Nicosia, Cyprus. 
-                            My journey from physics to tech has given me a unique perspective on creating digital solutions that combine analytical 
-                            precision with creative design.
-                        </p>
-                            <div class="journey-section">
-                                <h3>My Journey Into Tech</h3>
-                                <div class="journey">
-                                    <div class="degree" id="bsc">
-                                        <div class="degree-header">
-                                            <div>
-                                                <h4 class="degree-title">BSc Physics (First Class Honours)</h4>
-                                                <p class="university">Cardiff University | 2020-2023</p>
-                                            </div>
-                                        </div>
-                                        <ul class="degree-highlights">
-                                            <li>Developed computational and analytical skills</li>
-                                            <li>Completed end-to-end simulation of ARIEL space mission</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="first-arrow">
-                                        <div class="line"></div>
-                                        <div class="arrowhead"></div>
-                                    </div>
-                                    
-                                    <div class="internship" id="internship">
-                                        <div class="internship-header">
-                                            <h4 class="internship-title">Web Development Internship</h4>
-                                        </div>
-                                        <p class="company">Dynamic Works Ltd, Nicosia | 2022</p>
-                                        <p class="internship-description">This hands-on experience transformed my career path, revealing how technical skills could bring creative visions to life:</p>
-                                        <ul class="internship-skills">
-                                            <li><span class="skill-badge">Practical Implementation</span> Transformed concepts into functional websites</li>
-                                            <li><span class="skill-badge">Creative Discovery</span> Explored the potential of web technologies</li>
-                                            <li><span class="skill-badge">Career Inspiration</span> Motivated me to pursue formal CS education</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="second-arrow">
-                                        <div class="line"></div>
-                                        <div class="arrowhead"></div>
-                                    </div>
-                                    
-                                    <div class="degree" id="msc">
-                                        <div class="degree-header">
-                                            <div>
-                                                <h4 class="degree-title">MSc Computer Science (Merit)</h4>
-                                                <p class="university">University of Edinburgh | 2023-2024</p>
-                                            </div>
-                                        </div>
-                                        <ul class="degree-highlights">
-                                            <li>Dissertation on PostgreSQL query plan similarity</li>
-                                        </ul>
-                                    </div>
+                <h2>Let Me Introduce Myself</h2>
+                <p class="intro">
+                    <img
+                        class="emoji"
+                        src="https://img.icons8.com/emoji/48/waving-hand-emoji.png"
+                        alt="waving-hand-emoji"
+                    />
+                    I'm Anna - a passionate web developer with a unique
+                    background in physics. My journey has equipped me with a
+                    powerful combination of analytical thinking and creative
+                    problem-solving skilss that I now use to build intuitive,
+                    user-focused web applications.
+                </p>
+                <div class="journey-section">
+                    <h3>My Path to Web Development</h3>
+                    <div class="journey">
+                        <div class="degree" id="bsc">
+                            <div class="degree-header">
+                                <div>
+                                    <h4 class="degree-title">
+                                        BSc Physics (First Class Honours)
+                                    </h4>
+                                    <p class="university">
+                                        Cardiff University | 2020-2023
+                                    </p>
+                                    <p>
+                                        Where I learned to think systematically
+                                        and solve complex problems
+                                    </p>
                                 </div>
                             </div>
+                            <ul class="degree-highlights">
+                                <li>
+                                    Developed computational and analytical
+                                    skills
+                                </li>
+                                <li>
+                                    <span class="skill-badge"
+                                        >Undergraduate dissertation:</span
+                                    >
+                                    Built simulations for the ARIEL space
+                                    mission (2029), modelling telescope
+                                    vibrations and movement to study how noise
+                                    affects the data accuracy. Implemented
+                                    methods to reduce noice and recover
+                                    realistic signal data, improving the
+                                    precision of simulation results.
+                                </li>
+                            </ul>
+                        </div>
 
-                            <div class="skills-section">
-                                <h3>Technical Toolkit</h3>
-                                <div class="skills">
-                                    <div class="skill-category" id="frontend">
-                                        <div class="skill-header">
-                                            <h4 class="skills-title">Frontend Development</h4>
-                                        </div>
-                                        <ul>
-                                            <li>HTML5 & CSS3 (Sass)</li>
-                                            <li>JavaScript (ES6+)</li>
-                                            <li>React framework</li>
-                                            <li>Responsive Web Design</li>
-                                        </ul>
-                                    </div>
+                        <div class="first-arrow">
+                            <div class="line"></div>
+                            <div class="arrowhead"></div>
+                        </div>
 
-                                    <div class="skill-category" id="backend">
-                                        <div class="skill-header">
-                                            <h4 class="skills-title">Backend & Databases</h4>
-                                        </div>
-                                        <ul>
-                                            <li>Node.js</li>
-                                            <li>PostgreSQL</li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <div class="skill-category" id="tools">
-                                        <div class="skill-header">
-                                            <h4 class="skills-title">Tools & Methods</h4>
-                                        </div>
-                                        <ul>
-                                            <li>Git version control</li>
-                                            <li>Linux environment</li>
-                                        </ul>
-                                    </div>
+                        <div class="internship" id="internship">
+                            <div class="internship-header">
+                                <h4 class="internship-title">
+                                    Web Development Internship
+                                </h4>
+                            </div>
+                            <p class="company">
+                                Dynamic Works Ltd, Nicosia | 2022
+                            </p>
+                            <p class="internship-description">
+                                Where I discovered my passion for bringing ideas
+                                to life through code
+                            </p>
+                            <ul class="internship-skills">
+                                <li>
+                                    <span class="skill-badge"
+                                        >Hands-On Development</span
+                                    >
+                                    Gained practical experience building
+                                    functional websites and seeing projects
+                                    through from concept to completion
+                                </li>
+                                <li>
+                                    <span class="skill-badge"
+                                        >Technical Implementation</span
+                                    >
+                                    Translated design concepts into working
+                                    code, bridging the gap between vision and
+                                    reality
+                                </li>
+                                <li>
+                                    <span class="skill-badge"
+                                        >Career Direction</span
+                                    >
+                                    This experience confirmed my passion for web
+                                    development and motivated me to pursue
+                                    formal CS education
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="second-arrow">
+                            <div class="line"></div>
+                            <div class="arrowhead"></div>
+                        </div>
+
+                        <div class="degree" id="msc">
+                            <div class="degree-header">
+                                <div>
+                                    <h4 class="degree-title">
+                                        MSc Computer Science (Merit)
+                                    </h4>
+                                    <p class="university">
+                                        University of Edinburgh | 2023-2024
+                                    </p>
+                                    <p class="master-description">
+                                        Explored core computer science concepts,
+                                        solidifying my passion for creating
+                                        intuitive, high-performance web
+                                        applications.
+                                    </p>
                                 </div>
                             </div>
+                            <ul class="degree-highlights">
+                                <li>
+                                    <span class="skill-badge">Databases</span
+                                    >Developed SQL skills and understanding of
+                                    database architecture
+                                </li>
+                                <li>
+                                    Dissertation: Investigated how marked types
+                                    of data can affect query plans and execution
+                                    time
+                                </li>
+                                <li>
+                                    <span class="skill-badge"
+                                        >User-Centered Design:</span
+                                    >
+                                    Studied Human-Computer Interaction
+                                    principles, focusing on usability and
+                                    accessibility
+                                </li>
+                                <li>
+                                    <span class="skill-badge"
+                                        >Development Best Practices:</span
+                                    >
+                                    Gained experience with version control (Git)
+                                    and code refactoring
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="personal-section">
-                                <h3 class="section-title">Beyond Programming</h3>
-                                <div class="hobbies">
-                                    <div class="hobby">
-                                        <p><img class="emoji" src="https://img.icons8.com/color/48/tennis.png" alt="tennis-icon"> Friendly tennis and padel matches</p>
-                                    </div>
-                                    <div class="hobby">
-                                        <p><img class="emoji" src="https://img.icons8.com/emoji/48/guitar-emoji.png" alt="guitar-icon"> Playing guitar and learning new songs</p>
-                                    </div>
-                                    <div class="hobby">
-                                        <p><img class="emoji" src="https://img.icons8.com/?size=100&id=63766&format=png&color=000000" alt="globe-icon"> Planning international adventures</p>
-                                    </div>
-                                    <div class="hobby">
-                                        <p><img class="emoji" src="https://img.icons8.com/emoji/48/beach-with-umbrella.png" alt="beach-with-umbrella-icon"> Enjoying Cyprus' beaches and sun</p>
-                                    </div>
-                                </div>
+                <div class="skills-section">
+                    <h3>Technical Toolkit</h3>
+                    <div class="skills">
+                        <div class="skill-category" id="frontend">
+                            <div class="skill-header">
+                                <img
+                                    src="https://img.icons8.com/fluency/48/laptop.png"
+                                    alt="laptop"
+                                />
+                                <h4>Frontend Development</h4>
                             </div>
-                            <!-- Call-to-action section -->
-                            <div class="cta-section">
-                                <h3>Let's Build Something Together</h3>
-                                <p>I'm currently available for web development projects in Cyprus and internationally, eager to expand my expertise while delivering exceptional results.</p>
-                                <div class="cta-buttons">
-                                    <a href="AnnaAnastasiadouCV.pdf" download=".AnnaAnastasiadouCV.pdf" class="cta-button primary">
-                                        <img class="emoji" src="https://img.icons8.com/officel/80/pdf-2.png" alt="pdf-icon"> Download My CV
-                                    </a>
-                                    <a href="#contactme" class="cta-button secondary">
-                                        <img class="emoji" src="https://img.icons8.com/office/40/comments.png" alt="conversation-icon"> Start a Conversation
-                                    </a>
-                                    <a href="#projects" class="cta-button secondary">
-                                        <img class="emoji" src="https://img.icons8.com/color/48/laptop--v1.png" alt="laptop-icon"> Look at My Projects 
-                                    </a>
-                                </div>
+                            <ul>
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>JavaScript (ES6+)</li>
+                                <li>Responsive Web Design</li>
+                                <li>Accessibility & Usability Principles</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category" id="backend">
+                            <div class="skill-header">
+                                <img
+                                    src="https://img.icons8.com/fluency/48/database--v1.png"
+                                    alt="database"
+                                />
+                                <h4>Databases</h4>
                             </div>
+                            <ul>
+                                <li>PostgreSQL (Basic database management)</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category" id="tools">
+                            <div class="skill-header">
+                                <img
+                                    src="https://img.icons8.com/color/48/maintenance.png"
+                                    alt="maintenance"
+                                />
+                                <h4>Tools & Methods</h4>
+                            </div>
+                            <ul>
+                                <li>Git version control</li>
+                                <li>Linux environment</li>
+                                <li>Human–Computer Interaction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="personal-section">
+                    <h3 class="section-title">Beyond Programming</h3>
+                    <div class="hobbies">
+                        <div class="hobby">
+                            <p>
+                                <img
+                                    class="emoji"
+                                    src="https://img.icons8.com/color/48/tennis.png"
+                                    alt="tennis-icon"
+                                />
+                                Friendly tennis and padel matches
+                            </p>
+                        </div>
+                        <div class="hobby">
+                            <p>
+                                <img
+                                    class="emoji"
+                                    src="https://img.icons8.com/emoji/48/guitar-emoji.png"
+                                    alt="guitar-icon"
+                                />
+                                Playing guitar and learning new songs
+                            </p>
+                        </div>
+                        <div class="hobby">
+                            <p>
+                                <img
+                                    class="emoji"
+                                    src="https://img.icons8.com/?size=100&id=63766&format=png&color=000000"
+                                    alt="globe-icon"
+                                />
+                                Planning international adventures
+                            </p>
+                        </div>
+                        <div class="hobby">
+                            <p>
+                                <img
+                                    class="emoji"
+                                    src="https://img.icons8.com/emoji/48/beach-with-umbrella.png"
+                                    alt="beach-with-umbrella-icon"
+                                />
+                                Enjoying Cyprus' beaches and sun
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Call-to-action section -->
+                <div class="cta-section">
+                    <h3>Let's Build Something Together</h3>
+                    <p>
+                        I'm currently available for web development projects in
+                        Cyprus and internationally, eager to expand my expertise
+                        while delivering exceptional results.
+                    </p>
+                    <div class="cta-buttons">
+                        <a
+                            href="AnnaAnastasiadouCV.pdf"
+                            download=".AnnaAnastasiadouCV.pdf"
+                            class="cta-button primary"
+                        >
+                            <img
+                                class="emoji"
+                                src="https://img.icons8.com/officel/80/pdf-2.png"
+                                alt="pdf-icon"
+                            />
+                            Download My CV
+                        </a>
+                        <a href="#contactme" class="cta-button secondary">
+                            <img
+                                class="emoji"
+                                src="https://img.icons8.com/office/40/comments.png"
+                                alt="conversation-icon"
+                            />
+                            Start a Conversation
+                        </a>
+                        <a href="#projects" class="cta-button secondary">
+                            <img
+                                class="emoji"
+                                src="https://img.icons8.com/color/48/laptop--v1.png"
+                                alt="laptop-icon"
+                            />
+                            Look at My Projects
+                        </a>
+                    </div>
+                </div>
             </section>
             <!-- Projects section is divided in fronted and backend projects -->
             <section id="projects">
                 <h3>Front End Projects</h3>
-                <p>Here are some of my projects that showcase my skills in front-end development.</p>
+                <p>
+                    Here are some of my projects that showcase my skills in
+                    front-end development.
+                </p>
                 <div id="frontend-projects">
                     <div class="project-tile">
-                        <h3>Survey Form</h3>
-                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/SurveyForm/" target="_blank">
-                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/formScreenshot.png" alt="Survey Form screenshot">
+                        <h3>Tic Tac Toe</h3>
+                        <a
+                            href="https://annaanastasiadou.github.io/theOdinProject/tictactoe"
+                            target="_blank"
+                        >
+                            <div class="img-wrap">
+                                <img
+                                    src="./images/ticTacToe.png"
+                                    alt="Tic Tac Toe screenshot"
+                                />
+                            </div>
                         </a>
-                        <p>An interactive survey form with various input types.</p>
+                        <p>
+                            A classic Tic Tac Toe game that includes score
+                            tracking and interactive gameplay.
+                        </p>
                     </div>
                     <div class="project-tile">
-                        <h3>Tribute Page</h3>
-                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/TributePage/" target="_blank">
-                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/tributeScreenshot.png" alt="Tribute Page screenshot">
+                        <h3>Restaurant Page</h3>
+                        <a
+                            href="https://annaanastasiadou.github.io/theOdinProject/restaurantPage"
+                            target="_blank"
+                        >
+                            <div class="img-wrap">
+                                <img
+                                    src="./images/restaurantPage.png"
+                                    alt="Restaurant Page Screenshot"
+                                />
+                            </div>
                         </a>
-                        <p>A tribute page dedicated to Nikola Tesla, showcasing his life and contributions.</p>
+                        <p>
+                            A multi-page responsive restaurant landing page with
+                            interactive layout.
+                        </p>
                     </div>
                     <div class="project-tile">
-                        <h3>HTML/CSS Documentation</h3>
-                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/DocumentationPage/" target="_blank">
-                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/documentationScreenshot.png" alt="HTML/CSS Documentation screenshot">
+                        <h3>To-do App</h3>
+                        <a
+                            href="https://annaanastasiadou.github.io/theOdinProject/todoList"
+                            target="_blank"
+                        >
+                            <div class="img-wrap">
+                                <img
+                                    src="./images/todoList.png"
+                                    alt="To-do App Screenshot"
+                                />
+                            </div>
                         </a>
-                        <p>A responsive documentation page built with HTML and CSS.</p>
+                        <p>
+                            A dynamic task management application with add,
+                            edit, and delete functionality.
+                        </p>
                     </div>
                     <div class="project-tile">
-                        <h3>Product Landing Page</h3>
-                        <a href="https://annaanastasiadou.github.io/ResponsiveWebDesign/CertificationProjects/ProductLandingPage/" target="_blank">
-                            <img src="https://raw.githubusercontent.com/AnnaAnastasiadou/portfolio/main/images/productScreenshot.png" alt="Product Landing Page screenshot">
+                        <h3>Weather App</h3>
+                        <a
+                            href="https://annaanastasiadou.github.io/theOdinProject/weatherApp"
+                            target="_blank"
+                        >
+                            <div class="img-wrap">
+                                <img
+                                    src="./images/todoList.png"
+                                    alt="Product Landing Page Screenshot"
+                                />
+                            </div>
                         </a>
-                        <p>A responsive product landing page with media queries.</p>
+                        <p>
+                            A responsive weather app fetching data from an API.
+                            Displays current weather, 7-day forecast, and
+                            interactive UI.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -210,39 +423,82 @@
             <section id="contactme" class="light-background">
                 <h2>Contact Me</h2>
                 <p>If you would like to get in touch, please reach out:</p>
-                <form id="contact-form" action="https://formspree.io/f/mbljpzen" method="POST">
+                <form
+                    id="contact-form"
+                    action="https://formspree.io/f/mbljpzen"
+                    method="POST"
+                >
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                        />
                         <label for="surname">Surname:</label>
-                        <input type="text" id="surname" name="surname" placeholder="Your Surname"  required>
+                        <input
+                            type="text"
+                            id="surname"
+                            name="surname"
+                            placeholder="Your Surname"
+                        />
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Your Email"
+                        />
                         <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Type a message" required></textarea>
-                        <input type="submit" value="Send Message" class="submit-button">
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            placeholder="Type a message"
+                        ></textarea>
+                        <input
+                            type="submit"
+                            value="Send Message"
+                            class="submit-button"
+                        />
                     </div>
-
                 </form>
-                <h3>Social Media:</h3>
+                <h3 class="social-media-header">Social Media:</h3>
                 <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/anna-anastasiadou-46a873312/" target="_blank">
-                        <img src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin-icon" class="emoji">
+                    <a
+                        href="https://www.linkedin.com/in/anna-anastasiadou-46a873312/"
+                        target="_blank"
+                    >
+                        <img
+                            src="https://img.icons8.com/color/48/linkedin.png"
+                            alt="linkedin-icon"
+                            class="emoji"
+                        />
                     </a>
-                    <a id="profile-link" href="https://github.com/AnnaAnastasiadou" target="_blank">
-                        <img src="https://img.icons8.com/ios-filled/50/github.png" alt="github-icon" class="emoji">
+                    <a
+                        id="profile-link"
+                        href="https://github.com/AnnaAnastasiadou"
+                        target="_blank"
+                    >
+                        <img
+                            src="https://img.icons8.com/ios-filled/50/github.png"
+                            alt="github-icon"
+                            class="emoji"
+                        />
                     </a>
                     <a href="mailto:annaanast2002@gmail.com">
-                        <img src="https://img.icons8.com/fluency/48/mail--v1.png" alt="email-icon" class="emoji">
+                        <img
+                            src="https://img.icons8.com/fluency/48/mail--v1.png"
+                            alt="email-icon"
+                            class="emoji"
+                        />
                     </a>
                 </div>
             </section>
         </main>
         <footer>
-            <p>&copy; 2025 - All rights reserved, web developer - Anna Anastasiadou</p>
-            <div class="icon-attribution">
-                <p>Icons by <a href="https://icons8.com" target="_blank">Icons8</a></p>
-            </div>
+            <p>&copy; 2025 Anna Anastasiadou. All rights reserved.</p>
         </footer>
     </body>
 </html>
