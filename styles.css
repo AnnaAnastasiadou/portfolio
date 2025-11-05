@@ -139,9 +139,9 @@ body {
 /* Navbar positioning and styling */
 #navbar {
     position: fixed;
-    top: 0.1rem;
-    left: 2rem;
-    width: calc(100% - 4rem);
+    top: 0.5rem;
+    left: 0.5rem;
+    width: calc(100% - 1rem);
     text-transform: uppercase;
     z-index: 1000;
     transition: var(--transition);
@@ -197,7 +197,7 @@ body {
 /* Section base styles */
 section {
     min-height: 100vh;
-    margin: 2rem;
+    margin: 0.5rem 0.5rem;
     background: radial-gradient(
         circle at center,
         var(--bg-secondary),
