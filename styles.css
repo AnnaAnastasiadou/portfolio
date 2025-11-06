@@ -594,7 +594,8 @@ auto rows: skills cards (no arrows)*/
 }
 
 /* Call-to-action button styling */
-.cta-buttons {
+.cta-buttons,
+.project-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -602,7 +603,8 @@ auto rows: skills cards (no arrows)*/
     margin-top: 20px;
 }
 
-.cta-section a {
+.cta-section a,
+.project-btn {
     background: var(--card-bg);
     color: var(--text-dark);
     display: inline-block;
@@ -617,7 +619,23 @@ auto rows: skills cards (no arrows)*/
     transition: var(--transition);
 }
 
-.cta-section a:hover {
+.cta-section a {
+    border-radius: var(--border-radius);
+}
+
+.project-btn {
+    border-radius: calc(var(--border-radius) / 2);
+}
+
+.project-btn i {
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 1rem;
+    vertical-align: auto;
+}
+
+.cta-section a:hover,
+.project-btn:hover {
     background: var(--bg-secondary);
     color: var(--text-light);
     border-color: var(--bg-secondary);
@@ -625,7 +643,8 @@ auto rows: skills cards (no arrows)*/
     transform: translate(0.1rem, 0.1rem);
 }
 
-.cta-section a:active {
+.cta-section a:active,
+.project-btn:active {
     box-shadow: none;
     transform: translate(0.2rem, 0.2rem);
 }
