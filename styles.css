@@ -858,7 +858,7 @@ footer {
         display: grid;
         grid-template-columns: auto auto auto;
         grid-template-rows: 1fr;
-        max-width: 900px;
+        max-width: 1900px;
         margin: 0 auto;
     }
 
@@ -916,5 +916,15 @@ footer {
     .second-arrow {
         grid-column: 3/4;
         grid-row: 2/3;
+    }
+}
+
+/* Tablet styles */
+@media screen and (min-width: 576px) and (max-width: 900px) {
+    .skills {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        max-width: 600px;
     }
 }
