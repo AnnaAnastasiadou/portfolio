@@ -327,7 +327,7 @@ auto rows: skills cards (no arrows)*/
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    gap: 20px;
+    gap: 1.5rem;
     max-width: 300px;
 }
 
@@ -853,12 +853,11 @@ footer {
         gap: 20px;
     }
 
-    /* Desktop layout for skills (no arrows) */
     .skills {
         display: grid;
         grid-template-columns: auto auto auto;
         grid-template-rows: 1fr;
-        max-width: 1900px;
+        max-width: 900px;
         margin: 0 auto;
     }
 
@@ -920,11 +919,13 @@ footer {
 }
 
 /* Tablet styles */
-@media screen and (min-width: 576px) and (max-width: 900px) {
+@media screen and (min-width: 576px) and (max-width: 899px) {
     .skills {
         display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto;
-        max-width: 600px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        max-width: 700px;
+        margin: 0 auto;
+        justify-items: center;
     }
 }
